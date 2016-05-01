@@ -87,6 +87,8 @@ if len(sys.argv) > 1:
     IP_DS1104Z = sys.argv[2]
 
 # Create/check if 'path' exists
+if len(sys.argv) > 2:
+    path_to_save = sys.argv[3]
 
 # Check network response (ping)
 if platform.system() == "Windows":
@@ -127,7 +129,7 @@ print instrument_id
 
 # Prepare filename as C:\MODEL_SERIAL_YYYY-MM-DD_HH.MM.SS
 timestamp = time.strftime("%Y-%m-%d_%H.%M.%S", time.localtime())
-filename = path_to_save + id_fields[model] + "_" + id_fields[serial] + "_" + timestamp
+filename = os.path.join(path_to_save, id_fields[model] + "_" + id_fields[serial] + "_" + timestamp)
 
 if file_format in ["png", "bmp"]:
     # Ask for an oscilloscope display print screen

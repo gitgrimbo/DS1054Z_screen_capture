@@ -18,7 +18,7 @@ __author__ = 'RoGeorge'
 from telnetlib_receive_all import Telnet
 from Rigol_functions import *
 import time
-import Image
+from PIL import Image
 import StringIO
 import sys
 import os
